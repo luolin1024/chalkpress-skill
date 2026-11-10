@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chalkpress"
+version = "0.1.0"
+description = "Chalkpress 技能：讲座视频 → 讲义 PDF 的确定性管线（转录/关键帧/对齐/PDF），校对与摘要由宿主 agent 完成"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+dependencies = [
+  "pillow>=10",
+  "reportlab>=4",
+  "imageio-ffmpeg>=0.4.9",
+]
+
+[project.optional-dependencies]
+zh = ["opencc-python-reimplemented>=0.1.7", "pypinyin>=0.50"]
+asr = ["faster-whisper>=1.0"]
+mac = ["mlx-whisper>=0.5"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+chalkpress = "chalkpress.cli:main"
+
+[tool.setuptools]
+packages = ["chalkpress"]
+
+[tool.setuptools.package-data]
+chalkpress = ["scene_packs/*.json"]
