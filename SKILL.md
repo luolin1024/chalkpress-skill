@@ -1,6 +1,6 @@
 ---
 name: chalkpress
-description: 把讲座/课件视频转成可打印、可检索的讲义 PDF：关键帧成页 + 字幕随页 + 学习摘要。Convert lecture/lecture-capture videos into printable, searchable handout PDFs (scene-detected keyframe pages, aligned subtitles, agent-written study summary). 触发词：讲义、视频转PDF、讲座笔记、课程视频、handout、video to pdf。
+description: 把备考/课程视频转成可打印、可检索的讲义 PDF：关键帧成页 + 字幕随页 + agent 撰写学习笔记。适合考研、研究生课程、软考法考等专业考试场景。Turn exam-prep/lecture videos into printable, searchable handout PDFs (keyframe pages, aligned subtitles, agent-written study notes). 触发词：讲义、视频转PDF、网课笔记、考研、备考、课程视频、handout、video to pdf。
 ---
 
 # Chalkpress：讲座视频 → 讲义 PDF
