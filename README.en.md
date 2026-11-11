@@ -9,6 +9,7 @@
 **A 30-minute lecture → a 5-minute read**: scene-detected keyframe pages replace scrubbing, subtitles travel with their slide, review by search instead of rewatching — orchestrated by your AI agent, fully local, zero API keys.
 
 [![CI](https://github.com/luolin1024/chalkpress-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/luolin1024/chalkpress-skill/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/luolin1024/chalkpress-skill)](https://github.com/luolin1024/chalkpress-skill/releases)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](pyproject.toml)
 
@@ -43,7 +44,9 @@ The painful part of video lectures is not watching — it's **finding things aga
 **As an agent skill (recommended):**
 
 ```bash
-git clone https://github.com/luolin1024/chalkpress-skill.git ~/.agents/skills/chalkpress-skill
+# Claude Code (skills dir: ~/.claude/skills/)
+git clone https://github.com/luolin1024/chalkpress-skill.git ~/.claude/skills/chalkpress-skill
+# Other SKILL.md-aware agents (Hermes, OpenCode, ...): clone into their skills dir
 ```
 
 Then just ask your agent: *"turn this lecture video into a handout"*. It follows [SKILL.md](SKILL.md): install deps → transcribe → **proofread** → build → **write the summary**.
@@ -69,6 +72,25 @@ graph LR
 ```
 
 The deterministic pipeline owns every mechanical step; LLM judgment belongs to the host agent ([ADR-0001](docs/adr/0001-llm-belongs-to-host-agent.md)). `build` consumes only `manifest.json` + keyframes — no ffmpeg, rerun anywhere ([ADR-0002](docs/adr/0002-two-phase-cli.md)).
+
+## 🖼️ What You Get
+
+**AI study notes** — the host agent distills each section into an exam-point outline with star weights (embedded as the PDF's optional first page; framework labels are Chinese by design):
+
+![AI study notes](docs/imgs/summary-page.png)
+
+One conversion leaves you with a handout folder: `lecture.pdf` (keyframe pages + aligned subtitles, searchable text layer), `lecture.aligned.md` (subtitles × keyframes side by side), the polished `.srt`, `keyframes/`, and `manifest.json` (timestamps only — `build` reruns anywhere).
+
+## 🆚 How It Compares
+
+| | Chalkpress | Meeting-transcript tools (Feishu Minutes, etc.) | Generic transcription |
+|---|-----------|---------------|-------------|
+| Output | **Handout PDF** (frame + subtitles on one page) | plain transcript | plain text |
+| Printable & searchable | ✅ real text layer | ❌ | ❌ |
+| Structured summary | ✅ agent-written notes | ❌ | ❌ |
+| Review | search → page → timestamped replay | scroll a long transcript | scroll |
+| Video upload | **never leaves your machine** | cloud upload required | varies |
+| API key | **not needed** | platform account | usually required |
 
 ## ❓ FAQ
 

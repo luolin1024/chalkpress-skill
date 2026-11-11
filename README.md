@@ -9,6 +9,7 @@
 **30 分钟的课 → 5 分钟读完**：关键帧成页代替拖进度条，字幕随页即上下文，复习靠搜索不靠重看 —— 而这一切由你的 AI Agent 编排，全程本地，零 API Key。
 
 [![CI](https://github.com/luolin1024/chalkpress-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/luolin1024/chalkpress-skill/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/luolin1024/chalkpress-skill)](https://github.com/luolin1024/chalkpress-skill/releases)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](pyproject.toml)
 [![Stars](https://img.shields.io/github/stars/luolin1024/chalkpress-skill?style=social)](https://github.com/luolin1024/chalkpress-skill/stargazers)
@@ -39,7 +40,7 @@
 | 🎯 | **关键帧成页** | 场景检测驱动抽帧：内容变化才截页，不是机械等间隔；平均哈希去重 |
 | 📝 | **字幕随页** | Whisper 本地转写（faster-whisper / mlx-whisper），字幕对齐到所在画面的时间窗 |
 | 🤖 | **Agent 原生** | 字幕校对与图文摘要交给你的 AI Agent（Claude Code 等）用自己的模型完成——**零 API Key、零外呼** |
-| 🧩 | **术语包即数据** | 软考等领域的同音字误听按拼音滑窗确定性修正（软考正 → 软考证？修掉）；新领域只需加一个 JSON |
+| 🧩 | **术语包即数据** | 软考等领域的同音字误听按拼音滑窗确定性修正（坚偶校验 → 奇偶校验、生存数 → 生成树）；新领域只需加一个 JSON |
 | 🔒 | **全程本地** | 转写、抽帧、排版全在你机器上；管线自身零网络调用（whisper 模型首次下载除外） |
 | 🪶 | **按需安装** | 依赖分 4 组 extras：已有 SRT 就不用装 whisper（省下数百 MB 模型），中文视频才装繁简转换 |
 | 🖨️ | **可检索 PDF** | reportlab 排版，画面为图、字幕/摘要为真实文字层；CJK 字体三平台解析链不缺字 |
@@ -51,7 +52,9 @@
 把仓库放进你的 agent 技能目录，然后直接用自然语言指挥：
 
 ```bash
-git clone https://github.com/luolin1024/chalkpress-skill.git ~/.agents/skills/chalkpress-skill
+# Claude Code：clone 进其技能目录
+git clone https://github.com/luolin1024/chalkpress-skill.git ~/.claude/skills/chalkpress-skill
+# 其他支持 SKILL.md 的 agent（Hermes / OpenCode 等）：clone 进各自技能目录即可
 ```
 
 > 对 Claude Code / 其他支持 SKILL.md 的 agent 说："**把这个课程视频转成讲义**"——agent 会按 [SKILL.md](SKILL.md) 自己完成：装依赖 → 转录 → **校对字幕** → 构建 → **写图文摘要**。两步 LLM 工作是 agent 用自己的智能做的，不需要任何 API 配置。
@@ -195,7 +198,7 @@ Chalkpress 还有 [桌面版](https://github.com/luolin1024/chalkpress)（Window
 - [x] 内置软考术语包（241 条，拼音滑窗确定性修正）
 - [ ] 更多领域术语包（医学 / 法考 / 考研…—— 欢迎 PR，只需加 JSON）
 - [ ] CUDA / GPU 转写后端
-- [ ] 英文 README 完善（[进行中](README.en.md)）
+- [x] 双语 README（[英文精简版](README.en.md)）
 - [ ] 发布到主流 agent 技能市场
 
 ## 🤝 参与贡献
