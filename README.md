@@ -14,7 +14,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](pyproject.toml)
 [![Stars](https://img.shields.io/github/stars/luolin1024/chalkpress-skill?style=social)](https://github.com/luolin1024/chalkpress-skill/stargazers)
 
-[快速开始](#-快速开始) · [工作原理](#-工作原理) · [特性](#-特性) · [效果](#-效果) · [常见问题](#-常见问题) · [English](./README.en.md)
+[快速开始](#-快速开始) · [工作原理](#-工作原理) · [特性](#-特性) · [效果](#-效果) · [隐私](#-隐私) · [常见问题](#-常见问题) · [English](./README.en.md)
 
 </div>
 
@@ -144,6 +144,10 @@ graph LR
 | 复习方式 | 搜关键词定位到页，按页回看 | 在长文字稿里翻找 | 翻找 |
 | 视频上传 | **永不上传** | 需上传云端 | 视本地实现 |
 | API Key | **不需要** | 平台账号 | 多数需要 |
+
+## 🔒 隐私
+
+视频**始终不上传**——转写、抽帧、排版全程在你机器上完成，管线自身零网络调用（whisper 模型首次下载除外）。字幕与关键帧只出现在你自己的 agent 会话里。课程内容涉密、未公开内部培训视频，同样可用。
 
 ## ❓ 常见问题
 

@@ -92,6 +92,10 @@ One conversion leaves you with a handout folder: `lecture.pdf` (keyframe pages +
 | Video upload | **never leaves your machine** | cloud upload required | varies |
 | API key | **not needed** | platform account | usually required |
 
+## 🔒 Privacy
+
+Videos **never leave your machine** — transcription, keyframe extraction, and PDF layout all run locally; the pipeline itself makes zero network calls (first Whisper model download excepted). Subtitles and keyframes exist only inside your own agent session. Confidential or internal training videos are fine too.
+
 ## ❓ FAQ
 
 <details>
